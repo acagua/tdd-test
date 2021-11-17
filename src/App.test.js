@@ -27,7 +27,7 @@ test('initial conditions' , ()=> {
   expect(colorButton).toBeEnabled();
 
   //checkbox starts unchecked
-  const checkbox = screen.getByRole('checkbox');
+  const checkbox = screen.getByRole('checkbox', {name: 'Disable Button'});
   expect(checkbox).not.toBeChecked();
 
   fireEvent.click(checkbox);
