@@ -8,11 +8,10 @@ function App() {
   const [checked, setChecked] = useState(false)
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
 
-
   return (
     <div className="App">
       <button 
-        style={{backgroundColor:buttonColor}}
+        style={{backgroundColor: checked? 'gray' : buttonColor}}
         onClick={()=>setButtonColor(newButtonColor)}
         disabled={checked}
       >
@@ -23,7 +22,7 @@ function App() {
         id="disabled-button-checked"
         defaultChecked={checked}
         aria-checked={checked}
-        onChange={(e)=>{setChecked(e.target.checked)}}/>
+        onChange={({target}) => {setChecked(target.checked)}}/>
         <label htmlFor="disabled-button-checked">Disable Button</label>
     </div>
   );
