@@ -1,19 +1,21 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App, { replaceCamelWithSpaces } from './App';
 
+
+
 test('button has correct initial color', () => {
   render(<App/>);
 
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'});
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'});
 
-  expect(colorButton).toHaveStyle({backgroundColor: 'red'});
+  expect(colorButton).toHaveStyle({backgroundColor: 'MediumVioletRed'});
   
-  //color changes to blue when clicked
+  //color changes to MidnightBlue when clicked
   fireEvent.click(colorButton);
-  expect(colorButton).toHaveStyle({backgroundColor:'blue'});
+  expect(colorButton).toHaveStyle({backgroundColor:'MidnightBlue'});
 
-  expect(colorButton.textContent).toBe('Change to red')
-  // expect(colorButton).toHaveDisplayValue('Change to red');
+  expect(colorButton.textContent).toBe('Change to Medium Violet Red')
+  // expect(colorButton).toHaveDisplayValue('Change to MediumVioletRed');
   
 
 });
@@ -23,7 +25,7 @@ test('initial conditions' , ()=> {
   render(<App/>);
 
   //color button starts red
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'})
   expect(colorButton).toBeEnabled();
 
   //checkbox starts unchecked
@@ -43,20 +45,20 @@ test('check gray color when disabled', () => {
   
   render(<App/>);
 
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'});
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'});
   const checkbox = screen.getByRole('checkbox', {name: 'Disable Button'})
 
-  expect(colorButton).toHaveStyle({backgroundColor: 'red'});
+  expect(colorButton).toHaveStyle({backgroundColor: 'MediumVioletRed'});
   fireEvent.click(checkbox);
   expect(colorButton).toHaveStyle({backgroundColor: 'gray'});
   fireEvent.click(checkbox);
-  expect(colorButton).toHaveStyle({backgroundColor: 'red'});
+  expect(colorButton).toHaveStyle({backgroundColor: 'MediumVioletRed'});
   fireEvent.click(colorButton);
-  expect(colorButton).toHaveStyle({backgroundColor: 'blue'});
+  expect(colorButton).toHaveStyle({backgroundColor: 'MidnightBlue'});
   fireEvent.click(checkbox);
   expect(colorButton).toHaveStyle({backgroundColor: 'gray'});
   fireEvent.click(checkbox);
-  expect(colorButton).toHaveStyle({backgroundColor: 'blue'});
+  expect(colorButton).toHaveStyle({backgroundColor: 'MidnightBlue'});
 });
 
 
